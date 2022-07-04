@@ -44,5 +44,9 @@
     "wekyb",
     "bbwe"
   ],
-  "testMate.cpp.log.logSentry": "disable_3"
+  "testMate.cpp.log.logSentry": "disable_3",
+  "cloudrail.ApiKey": "cloudrail.ApiKey",
+  "cloudrail.AwsDefaultRegion": "cloudrail.ApiKey",
+  "cloudrail.CloudrailPolicyId": "cloudrail.ApiKey",
+  "cloudrail.TerraformWorkingDirectory": "cloudrail.ApiKey"
 }
