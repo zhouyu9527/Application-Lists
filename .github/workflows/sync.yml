@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
       - name: Get repo and time
         id: info
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         with:
           result-encoding: string
           script: |
@@ -26,7 +26,7 @@ jobs:
             return context.repo.repo;
 
       - name: Cache src repos
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3
         id: cache
         with:
           path: ${{ github.workspace }}/hub-mirror-cache
@@ -34,7 +34,7 @@ jobs:
           restore-keys: ${{ runner.os }}-${{ steps.info.outputs.key }}-cache-
 
       - name: Mirror the GitHub repos to Gitee with cache
-        uses: Yikun/hub-mirror-action@v1.1
+        uses: Yikun/hub-mirror-action@v1.2
         with:
           src: github/yi-Xu-0100
           dst: gitee/yiXu0100
@@ -50,7 +50,7 @@ jobs:
           ls -la ${{ github.workspace }}/hub-mirror-cache
 
       - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@v1.3.0
+        uses: yanglbme/gitee-pages-action@v1.4.1
         with:
           gitee-username: yiXu0100
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
